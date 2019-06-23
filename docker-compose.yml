@@ -1,0 +1,16 @@
+---
+version: '2'
+services:
+  uni-day-mongo-db:
+    image: mongo:4-xenial
+    ports:
+      - 27017:27017
+
+  uni-day-mongo-express:
+    image: mongo-express
+    depends_on:
+      - uni-day-mongo-db
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: uni-day-mongo-db
