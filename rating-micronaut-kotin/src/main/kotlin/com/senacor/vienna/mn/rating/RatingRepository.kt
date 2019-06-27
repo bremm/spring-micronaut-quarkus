@@ -36,7 +36,7 @@ class RatingRepository(
 
     fun findById(ratingId: String): Mono<Rating> {
         return collection
-                .find(eq("id", ratingId))
+                .find(eq("_id", ratingId))
                 .toMono()
                 .map(::mutableRatingToRating)
     }
